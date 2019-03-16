@@ -3,11 +3,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const Data = require("./data");
-
 const API_PORT = 3001;
 const app = express();
 var cors = require('cors');
 const router = express.Router();
+
+//other imports
+const path = require('path');
+
+//other app.use middleware
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 require('dotenv').config();
 
@@ -87,6 +92,12 @@ router.post("/putData", (req, res) => {
 
 // append /api for our http requests
 app.use("/api", router);
+
+
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 // launch our backend into a port
 app.listen(process.env.PORT || API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

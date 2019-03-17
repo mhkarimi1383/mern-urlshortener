@@ -38,25 +38,27 @@ export class Header extends Component {
 
 	render() {
 	return (
-		<Navbar color='light' light expand='md'>
-			<NavbarBrand href="/" className="mr-auto"><Link to="/">URL Shortener</Link></NavbarBrand>
-			<NavbarToggler onClick={this.toggle} className='mr-2'/>
-			<Collapse isOpen={this.state.isOpen} navbar>
-				<Nav navbar className='ml-auto'>
-					<NavItem>
-						<Link to="/" className='padded-nav' onClick={this.closeNav} > Home </Link>
-					</NavItem>
+		<div className='navbar-container'>
+			<Navbar color='light' light expand='md'>
+				<NavbarBrand href="/" className="mr-auto"><Link to="/">URL Shortener</Link></NavbarBrand>
+				<NavbarToggler onClick={this.toggle} className='mr-2'/>
+				<Collapse isOpen={this.state.isOpen} navbar>
+					<Nav navbar className='ml-auto'>
+						<NavItem>
+							<Link to="/" className='padded-nav' onClick={this.closeNav} > Home </Link>
+						</NavItem>
 
-					<NavItem>
-						<Link to="/about" className='padded-nav' onClick={this.closeNav} > About </Link>
-					</NavItem>
+						<NavItem>
+							<Link to="/about" className='padded-nav' onClick={this.closeNav} > About </Link>
+						</NavItem>
 
-					<NavItem>
-						<Link to="/contact-us" className='padded-nav' onClick={this.closeNav} > Contact </Link>
-					</NavItem>
-				</Nav>
-			</Collapse>
-		</Navbar>
+						<NavItem>
+							<Link to="/contact-us" className='padded-nav' onClick={this.closeNav} > Contact </Link>
+						</NavItem>
+					</Nav>
+				</Collapse>
+			</Navbar>
+		</div>
     );
   }
 }

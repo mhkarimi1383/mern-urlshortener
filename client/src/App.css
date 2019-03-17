@@ -7,13 +7,23 @@
 /*-----------------------------------------Header---------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
+
+/*holds navbar, matches background for large screens*/
+.navbar-container {
+  background-color:#f8f9fa;
+  width:100%;
+  height:56px;
+  z-index:5;
+  position:fixed;
+  top:0px;
+}
+
 nav {
   position:fixed !important;
   top:0px;
   width:100%;
+  max-width:900px;
   z-index:5;
-  margin-left:auto;
-  margin-right:auto;
 }
 
 .navbar-brand img{
@@ -58,6 +68,14 @@ li a:hover {
 
 .padded-nav {
   padding-left:20px;
+}
+
+@media only screen and (min-width: 900px) {
+  nav {
+    width:900px;
+    left:50%;
+    margin-left:-450px;
+  }
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------*/

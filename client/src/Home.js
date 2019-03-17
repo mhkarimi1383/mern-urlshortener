@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container, Row, Col } from 'reactstrap';
+import { Button, Container, Row, Col, Form, FormGroup, Input, Label } from 'reactstrap';
 import './App.css';
 import product from './product.jpg';
 import icon from './icon.png';
@@ -38,17 +39,18 @@ export class Home extends Component {
 	// changed and implement those changes into our UI
 	componentDidMount() {
 		window.scrollTo(0,0);
-
+		/*
 		this.getDataFromDb();
 		if (!this.state.intervalIsSet) {
 			let interval = setInterval(this.getDataFromDb, 1000);
 			this.setState({ intervalIsSet: interval });
 		}
+		*/
 	}
 
 	// never let a process live forever 
 	// always kill a process everytime we are done using it
-	componentWillUnmount() {
+	/*componentWillUnmount() {
 		if (this.state.intervalIsSet) {
 			clearInterval(this.state.intervalIsSet);
 			this.setState({ intervalIsSet: null });
@@ -112,7 +114,7 @@ export class Home extends Component {
 			id: objIdToUpdate,
 			update: { message: updateToApply }
 		});
-	};
+	};*/
 
 
 	
@@ -122,10 +124,14 @@ export class Home extends Component {
 
 			<div className='main' id='main'>
 				<div className='statement'>
-					<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit donec posuere sagittis augue rhoncus.</h1>
-					<div className='btn-holder'>
-						<Button color='primary'>IMPORTANT LINK</Button>
-					</div>
+					<h1>SAVE BITS AND SPACE, USE SHORT URLS.</h1>
+				</div>
+
+				<div className='form-container'>
+					<Form inline id='url-form' action="api/shorturl/new" method="POST">
+						<Input id="url_input" type="text" name="url" placeholder="Paste a link to shorten it"/>
+						<Button type="submit" value="POST URL" color='primary' id='inline-button' >SHORTEN</Button>
+					</Form>
 				</div>
 			</div>
 			

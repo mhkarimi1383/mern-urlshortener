@@ -1,0 +1,533 @@
+.App {
+  text-align: center;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------Header---------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+nav {
+  position:fixed !important;
+  top:0px;
+  width:100%;
+  z-index:5;
+}
+
+.navbar-brand img{
+  max-width:137px;
+}
+
+.nav-item {
+  padding-left:10px;
+  padding-right:10px;
+}
+
+ul {
+  background-color:#222222;
+  padding:10px;
+}
+
+li a {
+  color:white !important;
+  line-height:30px;
+}
+
+a:link {
+  text-decoration: none !important;
+}
+
+li a:hover {
+  color:lightblue !important;
+}
+
+.dropdown .nav-link {
+  padding:0px;
+  padding-left:20px;
+}
+
+.no-padding-nav {
+  padding:0px !important;
+  padding-left:20px !important;
+}
+
+.padded-nav {
+  padding-left:20px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------Home-----------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.main {
+  margin-top:74.922px;
+  background-image: url(./main.jpg);
+  height:400px;
+  overflow:hidden; 
+  width:100%;
+  background-position: center !important;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-attachment:fixed;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .main {
+    background-attachment: scroll;
+  }
+}
+
+.statement h1 {
+  display:block;
+  text-align:center;
+  font-size:calc(20px + 2vw);
+  margin:auto;
+  font-weight:400;
+  letter-spacing:2px;
+  width:90%;
+  margin-top:-30px;
+  max-width:900px;
+}
+
+.main .btn-holder {
+  margin-top:40px;
+  margin-left:auto;
+  margin-right:auto;
+  width:fit-content;
+}
+
+/*-----------------------------------------description----------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.description {
+  height:200px;
+  text-align:center;
+}
+
+.description h2 {
+  margin-top:40px;
+  font-weight:100;
+  letter-spacing: 4px;
+}
+
+.description p {
+  margin:20px auto;
+  max-width:700px;
+}
+
+/*-----------------------------------------capstone-------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.capstone-feature {
+  background-color:#eee;
+  text-align:center;
+  padding-top:50px;
+  padding-bottom:50px;
+}
+
+.capstone-feature h2 {
+  padding-top:40px;
+  font-weight:100;
+  letter-spacing: 4px;
+}
+
+.capstone-feature p{
+  max-width:700px;
+  margin:20px auto;
+}
+
+.product {
+  width:80%;
+  margin:auto;
+}
+
+.product-col {  
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*-----------------------------------------features-------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.features-header {
+  text-align:center;
+}
+
+.features-header h2 {  
+  padding-top:60px;
+  font-weight:100;
+  letter-spacing: 4px;
+  margin-bottom:20px;
+}
+
+.features-header p {
+  padding-bottom:50px;
+  width:80%;
+  margin:auto;
+  max-width:700px;
+}
+
+.features {
+  background-color:#eee;
+  padding:30px 20px;
+}
+
+.feature-icon {
+  padding-top:10px;
+}
+
+.feature-icon img {  
+  margin:auto;
+  max-width:30px;
+}
+
+.feature-desc h3 {
+  font-weight:100;
+}
+
+/*-----------------------------------------add. rel. features---------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+.additional-product {  
+  text-align:center;
+}
+
+.additional-product h2 {  
+  padding-top:80px;
+  font-weight:100;
+  letter-spacing: 4px;
+  margin: auto 15px;
+  margin-bottom:20px;
+}
+
+.additional-product p {
+  width:80%;
+  margin:auto;
+  max-width:700px;
+}
+
+.additional-product .btn-holder {
+  margin-top:20px;
+  margin-left:auto;
+  margin-right:auto;
+  width:fit-content;
+  padding-bottom:60px;
+}
+
+/*-----------------------------------------important value------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+.defining-value {  
+  text-align:center;
+  background-color:#eee;
+  padding: 50px 0px 60px 0px;
+}
+
+.defining-value h2 {  
+  font-weight:100;
+  letter-spacing: 4px;
+  margin: auto 15px;
+  margin-bottom:20px;
+}
+
+.defining-value p {
+  width:80%;
+  margin:auto;
+  max-width:700px;
+}
+
+/*-----------------------------------------product giveaway-----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+.product-giveaway {  
+  text-align:center;
+  padding: 50px 0px 60px 0px;
+}
+
+.product-giveaway h2 {  
+  font-weight:100;
+  letter-spacing: 4px;
+  margin-bottom:20px;
+}
+
+.product-giveaway p {
+  width:80%;
+  margin:auto;
+  max-width:700px;
+}
+
+.product-giveaway .btn-holder {
+  margin-top:20px;
+  margin-left:auto;
+  margin-right:auto;
+  width:fit-content;
+  padding-bottom:60px;
+}
+
+.product-giveaway img {
+  max-height: 300px;
+}
+
+/*-----------------------------------------ending---------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.ending {
+  background-image: url(./ending.jpg);
+  height:fit-content;
+  min-height:200px;
+  overflow:hidden; 
+  width:100%;
+  background-position: center !important;
+  background-repeat:no-repeat;
+  background-size:cover;
+  color:white;
+  text-align:center;
+  padding:20px 0px 60px 0px;
+}
+
+.quantifiable {
+  background-color:rgb(34, 34, 34, .5);
+  margin: 10px auto;
+}
+
+.quantifiable h2 {
+  font-size:60px;
+  margin:20px auto;
+}
+
+.quantifiable h3 {
+  font-size:18px;
+  font-weight:100;
+  padding-bottom:40px !important;
+}
+
+.quantifiable .fa-coffee {
+  margin-top:30px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------footer---------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+.footer {
+  height:250px;
+}
+
+.social-media {
+  margin:30px auto;
+  width:fit-content;
+}
+
+.social-icons {
+  margin: 20px;
+}
+
+.footer p {
+  text-align:center;
+  margin-bottom:50px;
+  color:#666;
+}
+
+.up-container {
+  width:fit-content;
+  margin:30px auto;
+}
+
+.back-top {
+ color:rgb(37, 134, 181);
+}
+
+.back-top:hover {
+  cursor:pointer;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------About----------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.about {
+  margin-top:86px;
+  background-image: url(./work.jpg);
+  height:200px;
+  overflow:hidden; 
+  width:100%;
+  background-position: center 65%;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+.about .statement h1 {
+  display:block;
+  text-align:center;
+  font-size:calc(20px + 2vw);
+  margin:auto;
+  font-weight:300;
+  padding-top:80px;
+  letter-spacing:4px;
+  width:100%;
+  color:white;
+  font-size:38px;
+}
+
+/*-----------------------------------------One-line-------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.one-line {
+  background-color:#eee;
+  height:200px;
+  text-align:center;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.one-line p {
+  font-size:18px;
+  margin:0px auto;
+  width:90%;
+  max-width:800px;
+  font-weight:500;
+}
+
+/*-----------------------------------------Team-----------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.team {
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.team h2 {
+  padding-top:40px;
+  font-weight:100;
+  letter-spacing: 4px;
+  margin-bottom:20px;
+}
+
+.team .description {
+  height:fit-content;
+  width:90%;
+  max-width:700px;  
+  margin:20px auto;
+}
+
+.team .description p {
+  font-weight:100;
+  max-width:700px;
+}
+
+.team img {
+  max-width:100px;
+}
+
+.team .headshot-name p {
+  font-weight:500;
+  text-align:center;
+  width:160px;
+}
+
+.team .col {
+  width:initial !important;
+  display:inline-block;
+}
+
+/*-----------------------------------------Hire-plug------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.hire-plug {
+  height:200px;
+  background-color:#eee;
+  text-align:center;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight:500;
+}
+
+.hire-plug p {
+  width:80%;
+  max-width:700px;
+}
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------contact--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+#contact-container {
+  background-color:#eee;
+  padding:50px;
+}
+
+.form-group {
+  text-align:left;
+}
+
+#contact-form {
+  max-width:700px;
+  margin:auto;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------demo-----------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.demo {
+  margin-top:74.922px;
+  text-align: center;
+}
+
+.demo .heading {
+  height:200px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+.demo .heading h1 {  
+  letter-spacing:3px;
+  font-weight:400;
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.city-back {  
+  background-image:url('./demo-city.jpg');
+  height:fit-content;
+  min-height:200px;
+  overflow:hidden; 
+  width:100%;
+  background-position: center !important;
+  background-repeat:no-repeat;
+  background-size:cover;
+  color:white;
+  text-align:center;
+  padding:60px 0px;
+}
+
+.demo #contact-container {
+  background-color: rgb(238, 238, 238, .2);
+  padding:50px;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------media queries >767px-------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 767px) {
+  ul {
+    background-color:#f8f9fa;
+    padding:0px;
+  }
+
+  li a{
+    color:black !important;
+  }
+}

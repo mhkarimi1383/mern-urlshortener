@@ -3,25 +3,15 @@ import axios from "axios";
 
 class App extends Component {
 	// initialize our state 
-
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			data: [],
-			id: 0,
-			message: null,
-			intervalIsSet: false,
-			idToDelete: null,
-			idToUpdate: null,
-			objectToUpdate: null
-		};
-
-		this.getDataFromDb = this.getDataFromDb.bind(this);
-		this.putDataToDB = this.putDataToDB.bind(this);
-		this.deleteFromDB = this.deleteFromDB.bind(this);
-		this.updateDB = this.updateDB.bind(this);
-	}
+	state = {
+		data: [],
+		id: 0,
+		message: null,
+		intervalIsSet: false,
+		idToDelete: null,
+		idToUpdate: null,
+		objectToUpdate: null
+	};
 
 	// when component mounts, first thing it does is fetch all existing data in our db
 	// then we incorporate a polling logic so that we can easily see if our db has 
@@ -102,16 +92,8 @@ class App extends Component {
 		});
 	};
 
-	render() {
-
-		return (
-
-		);
-	}
-}
 
 
-/*
 	render() {
 
 	    const { data } = this.state;
@@ -176,5 +158,5 @@ class App extends Component {
 		);
 	}
 }
-*/
+
 export default App;

@@ -38,7 +38,8 @@ class App extends Component {
 	getDataFromDb = () => {
 		fetch("/api/getData")
 			.then(data => data.json())
-			.then(res => this.setState({ data: res.data }));
+			.then(res => this.setState({ data: res.data }))
+			.then(console.log(this.state.data));
 	};
 
 	// our put method that uses our backend api
@@ -65,6 +66,8 @@ class App extends Component {
 				objIdToDelete = dat._id;
 			}
 		});
+
+		console.log(objIdToDelete);
 
 		axios.delete("/api/deleteData", {
 			data: {

@@ -17,10 +17,10 @@ class App extends Component {
 			objectToUpdate: null
 		};
 
-		this.getDataFromDb = this.getDataFromDb.bind(this);
+		/*this.getDataFromDb = this.getDataFromDb.bind(this);
 		this.putDataToDB = this.putDataToDB.bind(this);
 		this.deleteFromDB = this.deleteFromDB.bind(this);
-		this.updateDB = this.updateDB.bind(this);
+		this.updateDB = this.updateDB.bind(this);*/
 	}
 
 	// when component mounts, first thing it does is fetch all existing data in our db
@@ -105,7 +105,7 @@ class App extends Component {
 	render() {
 
 		return (
-
+			
 		);
 	}
 }

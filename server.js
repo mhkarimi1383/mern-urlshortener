@@ -79,7 +79,8 @@ app.post('/api/shorturl/new', function(req,res) {
         //check the short_url count in the database
         var documentCount= Links.find().countDocuments().then((data)=>{
 
-          console.log(data);
+          console.log('document count is: ' + data);
+          console.log('making new object from Schema');
         
           //make the object to store
           var urlToShorten = new Links({
@@ -87,12 +88,16 @@ app.post('/api/shorturl/new', function(req,res) {
             short_url:data+1
           });
 
+
+          console.log('saving new object');
+
           //save the new object
-          urlToShorten.save(err => {
+          urlToShorten.save((err, response) => {
             if (err) {
               console.log("error to databse: " + err);
               return res.json({ success: false, error: err });
             }
+            console.log('success, response is: ' + response);
             return res.send({original_url:urlToShorten.original_url, short_url:urlToShorten.short_url});
           });
 

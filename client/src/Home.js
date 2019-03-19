@@ -134,6 +134,8 @@ export class Home extends Component {
 					</Form>
 				</div>
 			</div>
+
+
 			
 			<div className='description'>
 				<h2>SECTION TITLE</h2>

@@ -68,9 +68,12 @@ export class Home extends Component {
 	};
 
 */
+	//consol.log's the new document made by putDataToDB
 	callback = (response) => {
 		console.log('response from post is: ' + response);
-	}	
+		console.log(JSON.stringify(response));
+		console.log(response[0].original_url + ' has been shortened to ' + response[0].short_url);
+	}
 
 	// our put method that uses our backend api
 	// to create new query into our data base
@@ -90,7 +93,7 @@ export class Home extends Component {
 		}).catch(err =>{
 			console.log(err);
 		});
-	};
+	}
 
 	/*
 
@@ -137,29 +140,25 @@ export class Home extends Component {
 
 			<div className='main' id='main'>
 				<div className='statement'>
-					<h1>SAVE BITS AND SPACE, USE SHORT URLS.</h1>
+					<h1>SAVE BITS, USE SHORT URLS.</h1>
 				</div>
 
 				<div className='form-container'>
-					<Form inline id='url-form' action="api/shorturl/new" method="POST">
-						<Input id="url_input" type="text" name="url" placeholder="Paste a link to shorten it"/>
-						<Button type="submit" value="POST URL" color='primary' id='inline-button' >SHORTEN</Button>
+					<Form inline id='url-form'>
+						<Input id='url-input' type="text" name='url' placeholder="Paste a link to shorten it"
+							onChange={e => this.setState({ urlToShorten: e.target.value })}							
+						/>
+						<Button id='inline-button' color='primary' value="POST URL" 
+							onClick={() => this.putDataToDB(this.state.urlToShorten)}
+						>
+							SHORTEN
+						</Button>
 					</Form>
-				</div>
+				</div>				
 			</div>
 
 
-				<div style={{ padding: "10px" }}>
-					<input
-						type="text"
-						onChange={e => this.setState({ urlToShorten: e.target.value })}
-						placeholder="add something in the database"
-						style={{ width: "200px" }}
-					/>
-					<button onClick={() => this.putDataToDB(this.state.urlToShorten)}>
-						ADD
-					</button>
-				</div>
+
 
 
 			

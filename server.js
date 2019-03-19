@@ -117,6 +117,44 @@ app.post('/api/shorturl/new', function(req,res) {
 
 
 
+/** 9)  Get input from client - Route parameters */
+app.get('/:shortened', function(req, res, next) {
+  /*
+  //res.send({'echo': req.params.shortened});
+  //next();
+  //use connect method to connect to MongoDb server
+  MongoClient.connect(process.env.MONGO_URI, function(err, db) {
+    if (err) {
+      //if can't connect log error
+      console.log('unable to connect to database. Error: ' + err);
+      throw err;
+    } else {
+      //for debugging purposes
+      console.log('Connection established from a '+req.params.shortened);     
+
+      //check if the shortened url exists in database
+      //open the collection from db atlas
+      var collection=db.db("FCC").collection("links");
+  */
+      //check the database for the shortened url
+      var findOneByFood = Links.findOne({short_url:parseInt(req.params.shortened)})
+      .then(function (data) {
+        if(!data) {
+          console.log('got an error: ' + data);
+          return null;
+        } else {
+          console.log('got some data: ' + JSON.stringify(data));
+          res.redirect(data.original_url);
+        }
+      });
+
+
+      //if it is, then redirect to the page
+
+      //if it doesn't, then give some sort of error message
+  //   }
+  // });
+});
 
 
 
@@ -126,6 +164,15 @@ app.post('/api/shorturl/new', function(req,res) {
 
 
 
+
+
+
+
+
+
+
+
+/*
 // this is our get method
 // this method fetches all available data in our database
 router.get("/getData", (req, res) => {
@@ -178,6 +225,8 @@ router.post("/putData", (req, res) => {
 
 // append /api for our http requests
 app.use("/api", router);
+
+*/
 
 
 

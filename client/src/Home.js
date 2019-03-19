@@ -21,15 +21,16 @@ export class Home extends Component {
 		this.state = {
 			data: [],
 			id: 0,
-			message: null,
+			urlToShorten: null,
 			intervalIsSet: false,
 			idToDelete: null,
 			idToUpdate: null,
 			objectToUpdate: null
 		};
 
-		/*this.getDataFromDb = this.getDataFromDb.bind(this);
 		this.putDataToDB = this.putDataToDB.bind(this);
+		this.callback = this.callback.bind(this);
+		/*this.getDataFromDb = this.getDataFromDb.bind(this);
 		this.deleteFromDB = this.deleteFromDB.bind(this);
 		this.updateDB = this.updateDB.bind(this);*/
 	}
@@ -66,20 +67,32 @@ export class Home extends Component {
 			.then(console.log(this.state.data));
 	};
 
+*/
+	callback = (response) => {
+		console.log('response from post is: ' + response);
+	}	
+
 	// our put method that uses our backend api
 	// to create new query into our data base
-	putDataToDB = message => {
-		let currentIds = this.state.data.map(data => data.id);
-		let idToBeAdded = 0;
-		while (currentIds.includes(idToBeAdded)) {
-			++idToBeAdded;
-		}
+	putDataToDB = (urlToShorten) => {
+		// let currentIds = this.state.data.map(data => data.id);
+		// let idToBeAdded = 0;
+		// while (currentIds.includes(idToBeAdded)) {
+		// 	++idToBeAdded;
+		// }
 
-		axios.post("/api/putData", {
-			id: idToBeAdded,
-			message: message
+		console.log('calling axios.post from react');
+		axios.post("/api/shorturl/new", {
+			url: urlToShorten
+		}).then(response => {
+			console.log('sending response to console.log from react');
+			this.callback(response);
+		}).catch(err =>{
+			console.log(err);
 		});
 	};
+
+	/*
 
 	// our delete method that uses our backend api 
 	// to remove existing database information
@@ -134,6 +147,19 @@ export class Home extends Component {
 					</Form>
 				</div>
 			</div>
+
+
+				<div style={{ padding: "10px" }}>
+					<input
+						type="text"
+						onChange={e => this.setState({ urlToShorten: e.target.value })}
+						placeholder="add something in the database"
+						style={{ width: "200px" }}
+					/>
+					<button onClick={() => this.putDataToDB(this.state.urlToShorten)}>
+						ADD
+					</button>
+				</div>
 
 
 			

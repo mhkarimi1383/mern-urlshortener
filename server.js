@@ -98,7 +98,8 @@ app.post('/api/shorturl/new', function(req,res) {
               return res.json({ success: false, error: err });
             }
             console.log('success, response is: ' + response);
-            return res.send({original_url:urlToShorten.original_url, short_url:urlToShorten.short_url});
+            return res.send(response);
+            // return res.send({original_url:urlToShorten.original_url, short_url:urlToShorten.short_url});
           });
 
           //show new object in browser

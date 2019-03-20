@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container, Row, Col, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Container, Row, Col, Form, FormGroup, Input, Label, Popover, PopoverBody } from 'reactstrap';
 import './App.css';
 import product from './product.jpg';
 import icon from './icon.png';
@@ -22,7 +22,8 @@ export class Home extends Component {
 			data: [],
 			id: 0,
 			urlToShorten: null,
-			shortenedUrl: null,
+			shortenedUrl: 1,
+			popoverOpen: false,
 			intervalIsSet: false,
 			idToDelete: null,
 			idToUpdate: null,
@@ -31,6 +32,8 @@ export class Home extends Component {
 
 		this.putDataToDB = this.putDataToDB.bind(this);
 		this.callback = this.callback.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+		this.toggle = this.toggle.bind(this);
 		/*this.getDataFromDb = this.getDataFromDb.bind(this);
 		this.deleteFromDB = this.deleteFromDB.bind(this);
 		this.updateDB = this.updateDB.bind(this);*/
@@ -103,6 +106,29 @@ export class Home extends Component {
 		});
 	}
 
+	//copies a shortened URL to keyboard
+	handleClick() {
+		//clear any selection
+		if (window.getSelection) {window.getSelection().removeAllRanges();}
+
+		//copy text in #shortened-url to clipboard
+		let range = document.createRange();
+		range.selectNode(document.getElementById('shortened-url'));
+		window.getSelection().addRange(range);
+		document.execCommand("copy");
+		console.log("copied");
+
+		//re-clear any selection
+		if (window.getSelection) {window.getSelection().removeAllRanges();}
+	}
+
+	//handles popover when link is copied to clipboard
+	toggle() {
+		this.setState({
+			popoverOpen: !this.state.popoverOpen
+		});
+	}
+
 	/*
 
 	// our delete method that uses our backend api 
@@ -166,12 +192,15 @@ export class Home extends Component {
 
 
 				{this.state.shortenedUrl != null &&
-				<div className='result-container'>
-					<div className='result-text'>
+				<div className='result-container' onClick={this.handleClick}>
+					<div className='result-text' id='shortened-url'>
 						{this.state.shortenedUrl}
 					</div>
-					<Button color='secondary'>Copy URL</Button>
-				</div>	
+					<Popover placement="bottom" isOpen={this.state.popoverOpen} target="shortened-url" toggle={this.toggle}>
+					<PopoverBody>Copied</PopoverBody>
+					</Popover>
+				</div>					
+		        
 				}		
 			</div>
 

@@ -170,7 +170,7 @@ li a:hover {
 @media only screen and (max-width: 438px) {
   /*adjust margin for when statement takes 2 lines*/
   .result-container {
-    margin-top:133px;
+    margin-top:113px;
   }
 }
 

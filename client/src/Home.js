@@ -22,7 +22,7 @@ export class Home extends Component {
 			data: [],
 			id: 0,
 			urlToShorten: null,
-			shortenedUrl: 1,
+			shortenedUrl: null,
 			popoverOpen: false,
 			intervalIsSet: false,
 			idToDelete: null,
@@ -76,9 +76,9 @@ export class Home extends Component {
 	callback = (response) => {
 		console.log('response from post is: ' + response);
 		console.log(JSON.stringify(response));
-		console.log(response[0].original_url + ' has been shortened to ' + response[0].short_url);
+		console.log(response.data.original_url + ' has been shortened to ' + response.data.short_url);
 
-		let urlToDisplay= 'https://mighty-earth-39298.herokuapp.com/' + response[0].short_url;
+		let urlToDisplay= 'https://mighty-earth-39298.herokuapp.com/' + response.data.short_url;
 
 		//change state so that shortenedURL will display
 		this.setState({

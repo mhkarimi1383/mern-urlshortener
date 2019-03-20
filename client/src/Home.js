@@ -82,7 +82,8 @@ export class Home extends Component {
 
 		//change state so that shortenedURL will display
 		this.setState({
-			shortenedUrl: urlToDisplay
+			shortenedUrl: urlToDisplay,
+			popoverOpen: false
 		});
 	}
 

@@ -78,7 +78,7 @@ export class Home extends Component {
 		console.log(JSON.stringify(response));
 		console.log(response.data.original_url + ' has been shortened to ' + response.data.short_url);
 
-		let urlToDisplay= 'https://mighty-earth-39298.herokuapp.com/' + response.data.short_url;
+		let urlToDisplay= 'https://mernurl.herokuapp.com/' + response.data.short_url;
 
 		//change state so that shortenedURL will display
 		this.setState({

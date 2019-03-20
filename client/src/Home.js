@@ -22,7 +22,7 @@ export class Home extends Component {
 			data: [],
 			id: 0,
 			urlToShorten: null,
-			shortenedUrl: 1,
+			shortenedUrl: null,
 			intervalIsSet: false,
 			idToDelete: null,
 			idToUpdate: null,
@@ -74,6 +74,13 @@ export class Home extends Component {
 		console.log('response from post is: ' + response);
 		console.log(JSON.stringify(response));
 		console.log(response[0].original_url + ' has been shortened to ' + response[0].short_url);
+
+		let urlToDisplay= 'https://mighty-earth-39298.herokuapp.com/' + response[0].short_url;
+
+		//change state so that shortenedURL will display
+		this.setState({
+			shortenedUrl: urlToDisplay
+		});
 	}
 
 	// our put method that uses our backend api
@@ -161,7 +168,7 @@ export class Home extends Component {
 				{this.state.shortenedUrl != null &&
 				<div className='result-container'>
 					<div className='result-text'>
-					URL Shortened
+						{this.state.shortenedUrl}
 					</div>
 					<Button color='secondary'>Copy URL</Button>
 				</div>	

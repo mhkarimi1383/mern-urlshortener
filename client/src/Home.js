@@ -22,6 +22,7 @@ export class Home extends Component {
 			data: [],
 			id: 0,
 			urlToShorten: null,
+			shortenedUrl: 1,
 			intervalIsSet: false,
 			idToDelete: null,
 			idToUpdate: null,
@@ -154,7 +155,17 @@ export class Home extends Component {
 							SHORTEN
 						</Button>
 					</Form>
-				</div>				
+				</div>	
+
+
+				{this.state.shortenedUrl != null &&
+				<div className='result-container'>
+					<div className='result-text'>
+					URL Shortened
+					</div>
+					<Button color='secondary'>Copy URL</Button>
+				</div>	
+				}		
 			</div>
 
 

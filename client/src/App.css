@@ -159,6 +159,32 @@ li a:hover {
   z-index:4;
 }
 
+/*conditionally rendered result box container for shortened URL*/
+.result-container {
+  margin-top:100px;
+  align-self:center;
+  position:absolute;
+  text-align:center;
+}
+
+@media only screen and (max-width: 438px) {
+  /*adjust margin for when statement takes 2 lines*/
+  .result-container {
+    margin-top:133px;
+  }
+}
+
+/*conditionally rendered result box for shortened URL*/
+.result-text {
+  background-color: rgba(0, 123, 255, 0.3);
+  text-align:center;
+  color:white;
+  margin-bottom:5px;
+  padding:5px;
+  border-radius:10px;
+}
+
+
 /*-----------------------------------------description----------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------*/
 

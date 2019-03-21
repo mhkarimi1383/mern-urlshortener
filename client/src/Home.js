@@ -24,6 +24,7 @@ export class Home extends Component {
 			urlToShorten: null,
 			shortenedUrl: null,
 			popoverOpen: false,
+			popoverHidden: false,
 			linksPowered: 0,
 			intervalIsSet: false,
 			idToDelete: null,
@@ -88,7 +89,17 @@ export class Home extends Component {
 
 		//handle bad urls
 		if (response.data.short_url == undefined) {
-			urlToDisplay = 'Invalid URL. Please check again. Make sure to include http:// or https://'
+			//show error message
+			urlToDisplay = 'Invalid URL. Please check again. Make sure to include http:// or https://';
+			//disable popover for copying link
+			this.setState({
+				popoverHidden:true
+			});
+		} else {
+			//make sure popover for copying link is enabled
+			this.setState({
+				popoverHidden:false
+			})
 		}
 
 		//change state so that shortenedURL will display
@@ -203,9 +214,11 @@ export class Home extends Component {
 					<div className='result-text' id='shortened-url'>
 						{this.state.shortenedUrl}
 					</div>
-					<Popover placement="bottom" isOpen={this.state.popoverOpen} target="shortened-url" toggle={this.toggle}>
-					<PopoverBody>Copied</PopoverBody>
-					</Popover>
+					{this.state.popoverHidden && 
+						<Popover placement="bottom" isOpen={this.state.popoverOpen} target="shortened-url" toggle={this.toggle}>
+						<PopoverBody>Copied</PopoverBody>
+						</Popover>
+					}
 				</div>					
 		        
 				}		

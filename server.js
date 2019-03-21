@@ -112,6 +112,19 @@ app.post('/api/shorturl/new', function(req,res) {
 
 
 
+//get request to update number of links made in database
+app.get("/getData", (req, res) => {
+  console.log('checking database for data');
+  Links.find((err, data) => {
+    if (err) {
+      console.log('error checking databse for data');
+      return res.json({ success: false, error: err });
+    }
+    console.log('no error checking database. returning data: ' + JSON.stringify(data));
+    console.log(data.length);
+    return res.send(data);
+  });
+});
 
 
 

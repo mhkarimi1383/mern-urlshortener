@@ -61,13 +61,19 @@ export class Home extends Component {
 		}
 	}
 */
-	// our first get method that uses our backend api to 
-	// fetch data from our data base
+	// fetch's data from databse to update number of links generated
 	getDataFromDb = () => {
-		fetch("/api/getData")
-			.then(data => data.json())
-			.then(res => this.setState({ data: res.data }))
-			.then(console.log(this.state.data));
+		axios.get("/getData")
+			.then(data => {
+				//handle success
+				console.log('data returned looks like this: ' + data);
+				console.log("stringified that's like this: " + JSON.stringify(data));
+				//data.json();
+				this.setState({ linksPowered: data.data.length });
+			}).catch(err =>{
+				//handle error
+				console.log(err);
+			});
 	};
 	/*
 
@@ -90,11 +96,6 @@ export class Home extends Component {
 	// our put method that uses our backend api
 	// to create new query into our data base
 	putDataToDB = (urlToShorten) => {
-		// let currentIds = this.state.data.map(data => data.id);
-		// let idToBeAdded = 0;
-		// while (currentIds.includes(idToBeAdded)) {
-		// 	++idToBeAdded;
-		// }
 
 		console.log('calling axios.post from react');
 		axios.post("/api/shorturl/new", {

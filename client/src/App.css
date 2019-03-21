@@ -220,6 +220,7 @@ li a:hover {
 
 .perk-cards-container {
   margin-bottom:40px;
+  max-width:900px;
 }
 
 .card-h3 {

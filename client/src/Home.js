@@ -214,7 +214,7 @@ export class Home extends Component {
 					<div className='result-text' id='shortened-url'>
 						{this.state.shortenedUrl}
 					</div>
-					{this.state.popoverHidden && 
+					{!this.state.popoverHidden && 
 						<Popover placement="bottom" isOpen={this.state.popoverOpen} target="shortened-url" toggle={this.toggle}>
 						<PopoverBody>Copied</PopoverBody>
 						</Popover>

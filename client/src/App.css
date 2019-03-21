@@ -295,6 +295,11 @@ li a:hover {
   padding:60px 0px 60px 0px;
 }
 
+.quantifiable {
+  margin-left:auto;
+  margin-right:auto;
+}
+
 .quantifiable h2 {
   font-size:50px;
   margin:auto;

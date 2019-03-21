@@ -22,7 +22,7 @@ export class Home extends Component {
 			data: [],
 			id: 0,
 			urlToShorten: null,
-			shortenedUrl: 'https://mernurl.herokuapp.com/',
+			shortenedUrl: null,
 			popoverOpen: false,
 			linksPowered: 0,
 			intervalIsSet: false,
@@ -255,14 +255,10 @@ export class Home extends Component {
 
 
 			<div className='ending'>
-				<Container><Row>
-					<Col lg='4'>
-						<div className='quantifiable'>
-							<h2>{this.state.linksPowered}</h2>
-							<h3 className='ending-h3'>LINKS POWERED BY MERNURL</h3>
-						</div>
-					</Col>
-				</Row></Container>
+				<div className='quantifiable'>
+					<h2>{this.state.linksPowered}</h2>
+					<h3 className='ending-h3'>LINKS POWERED BY MERNURL</h3>
+				</div>
 			</div>
 
 			<Footer/>

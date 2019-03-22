@@ -8,6 +8,7 @@ import book from './book.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import {Footer} from './Footer';
+import { Link } from 'react-router-dom';
 import './App.css';
 
 
@@ -265,8 +266,8 @@ export class Home extends Component {
 				</div>
 
 
-				<div className='btn-holder'>
-					<Button color='primary'>LEARN MORE</Button>
+				<div className='btn-holder'>				
+					<Link to="/about"  > <Button color='primary'>LEARN MORE</Button> </Link>					
 				</div>
 			</div>
 

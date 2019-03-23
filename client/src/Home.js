@@ -12,6 +12,9 @@ import { Link } from 'react-router-dom';
 import './App.css';
 import {UrlForm} from './UrlForm';
 import {UrlDisplay} from './UrlDisplay';
+import {Description} from './Description';
+import {FrameAndButton} from './FrameAndButton';
+import {Ending} from './Ending';
 
 export class Home extends Component {
 
@@ -182,51 +185,13 @@ export class Home extends Component {
 
 			</div>
 			
-			<div className='description'>
-				<h2>UNLEASH THE POWER OF THE LINK</h2>
-				<p className='desc-p'>Hyperlinks are everywhere and they can lead you to just as many places. Help others by saving space on the interweb and shortening your links using the form above.</p>
-				<Container className='perk-cards-container'>
-					<Row>
-						<Col md='4' className='perk-card'>
-							<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#ff6700'/>
-							<h3 className='card-h3'>Perk One</h3>
-							<p className='card-p'>Pellentesque eleifend arcu nisi, feugiat efficitur ligula pharetra non. Morbi nunc neque, lacinia quis nisl a, volutpat volutpat enim. Morbi est lectus, luctus sit amet metus ac, porttitor tristique dui. Phasellus rhoncus odio non erat rutrum efficitur porta nec ipsum. </p>
-						</Col>
-						<Col md='4' className='perk-card'>
-							<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#ff6700'/>
-							<h3 className='card-h3'>Perk Two</h3>
-							<p className='card-p'>Pellentesque eleifend arcu nisi, feugiat efficitur ligula pharetra non. Morbi nunc neque, lacinia quis nisl a, volutpat volutpat enim. Morbi est lectus, luctus sit amet metus ac, porttitor tristique dui. Phasellus rhoncus odio non erat rutrum efficitur porta nec ipsum. </p>
-						</Col>
-						<Col md='4' className='perk-card'>
-							<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#ff6700'/>
-							<h3 className='card-h3'>Perk Three</h3>
-							<p className='card-p'>Pellentesque eleifend arcu nisi, feugiat efficitur ligula pharetra non. Morbi nunc neque, lacinia quis nisl a, volutpat volutpat enim. Morbi est lectus, luctus sit amet metus ac, porttitor tristique dui. Phasellus rhoncus odio non erat rutrum efficitur porta nec ipsum. </p>
-						</Col>				
-					</Row>
-				</Container>
-			</div>
+			<Description/>
 
-			<div className='frame-frame'>
-				<div className='frame-div'>
-					<iframe 
-						src="https://www.youtube.com/embed/lSX5dPdArZ0" 
-						frameborder="0" 
-						allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" 
-						allowfullscreen/>
-				</div>
+			<FrameAndButton/>
 
-
-				<div className='btn-holder'>				
-					<Link to="/about"  > <Button color='primary' className='orange-button' >LEARN MORE</Button> </Link>					
-				</div>
-			</div>
-
-			<div className='ending'>
-				<div className='quantifiable'>
-					<h2>{this.state.linksPowered}</h2>
-					<h3 className='ending-h3'>LINKS POWERED BY MERNURL</h3>
-				</div>
-			</div>
+			<Ending
+				linksPowered={this.state.linksPowered}
+			/>
 
 			<Footer/>
 
@@ -248,7 +213,7 @@ export class Home extends Component {
 				// 	</Form>
 				// </div>	
 
-				
+
 
 				// {this.state.shortenedUrl != null &&
 				// <div className='result-container' onClick={this.handleCopy}>
@@ -263,3 +228,49 @@ export class Home extends Component {
 				// </div>					
 		        
 				// }	
+
+			// <div className='description'>
+			// 	<h2>UNLEASH THE POWER OF THE LINK</h2>
+			// 	<p className='desc-p'>Hyperlinks are everywhere and they can lead you to just as many places. Help others by saving space on the interweb and shortening your links using the form above.</p>
+			// 	<Container className='perk-cards-container'>
+			// 		<Row>
+			// 			<Col md='4' className='perk-card'>
+			// 				<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#ff6700'/>
+			// 				<h3 className='card-h3'>Perk One</h3>
+			// 				<p className='card-p'>Pellentesque eleifend arcu nisi, feugiat efficitur ligula pharetra non. Morbi nunc neque, lacinia quis nisl a, volutpat volutpat enim. Morbi est lectus, luctus sit amet metus ac, porttitor tristique dui. Phasellus rhoncus odio non erat rutrum efficitur porta nec ipsum. </p>
+			// 			</Col>
+			// 			<Col md='4' className='perk-card'>
+			// 				<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#ff6700'/>
+			// 				<h3 className='card-h3'>Perk Two</h3>
+			// 				<p className='card-p'>Pellentesque eleifend arcu nisi, feugiat efficitur ligula pharetra non. Morbi nunc neque, lacinia quis nisl a, volutpat volutpat enim. Morbi est lectus, luctus sit amet metus ac, porttitor tristique dui. Phasellus rhoncus odio non erat rutrum efficitur porta nec ipsum. </p>
+			// 			</Col>
+			// 			<Col md='4' className='perk-card'>
+			// 				<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#ff6700'/>
+			// 				<h3 className='card-h3'>Perk Three</h3>
+			// 				<p className='card-p'>Pellentesque eleifend arcu nisi, feugiat efficitur ligula pharetra non. Morbi nunc neque, lacinia quis nisl a, volutpat volutpat enim. Morbi est lectus, luctus sit amet metus ac, porttitor tristique dui. Phasellus rhoncus odio non erat rutrum efficitur porta nec ipsum. </p>
+			// 			</Col>				
+			// 		</Row>
+			// 	</Container>
+			// </div>
+
+			// <div className='frame-frame'>
+			// 	<div className='frame-div'>
+			// 		<iframe 
+			// 			src="https://www.youtube.com/embed/lSX5dPdArZ0" 
+			// 			frameborder="0" 
+			// 			allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" 
+			// 			allowfullscreen/>
+			// 	</div>
+
+
+			// 	<div className='btn-holder'>				
+			// 		<Link to="/about"  > <Button color='primary' className='orange-button' >LEARN MORE</Button> </Link>					
+			// 	</div>
+			// </div>
+
+			// <div className='ending'>
+			// 	<div className='quantifiable'>
+			// 		<h2>{this.state.linksPowered}</h2>
+			// 		<h3 className='ending-h3'>LINKS POWERED BY MERNURL</h3>
+			// 	</div>
+			// </div>

@@ -405,6 +405,12 @@ li a:hover {
   color:white;
 }
 
+@media only screen and (max-width: 500px) {
+  	.heading {
+    	background-position:bottom !important;
+	}
+}
+
 
 .logistics .heading h1 {  
   letter-spacing:3px;

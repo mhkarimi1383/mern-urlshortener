@@ -27,10 +27,7 @@ export class Home extends Component {
 			popoverOpen: false,
 			popoverHidden: false,
 			linksPowered: 0,
-			intervalIsSet: false,
-			idToDelete: null,
-			idToUpdate: null,
-			objectToUpdate: null
+			intervalIsSet: false
 		};
 
 		this.putDataToDB = this.putDataToDB.bind(this);

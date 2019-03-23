@@ -79,11 +79,15 @@ app.post('/api/shorturl/new', function(req,res) {
         //check the short_url count in the database
         var documentCount= Links.find().countDocuments().then((data)=>{
 
-          console.log('document count is: ' + data);
+          console.log('current document count is: ' + data);
           console.log('making new object from Schema');
 
-          var newId=Math.floor((Math.random() * 1000) + 1);
-        
+          //generate random number 1-100
+          var newId=Math.floor((Math.random() * 100) + 1);
+          //append doc number to end of newId
+          newId=parseInt(""+newId+data);
+
+
           //make the object to store
           var urlToShorten = new Links({
             original_url: newUrl, 

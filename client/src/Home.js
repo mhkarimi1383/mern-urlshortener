@@ -38,8 +38,6 @@ export class Home extends Component {
 		this.handleClick = this.handleClick.bind(this);
 		this.toggle = this.toggle.bind(this);
 		this.getDataFromDb = this.getDataFromDb.bind(this);
-		/*this.deleteFromDB = this.deleteFromDB.bind(this);
-		this.updateDB = this.updateDB.bind(this);*/
 	}
 
 	// when component mounts, first thing it does is fetch all existing data in our db
@@ -56,13 +54,13 @@ export class Home extends Component {
 
 	// never let a process live forever 
 	// always kill a process everytime we are done using it
-	/*componentWillUnmount() {
+	componentWillUnmount() {
 		if (this.state.intervalIsSet) {
 			clearInterval(this.state.intervalIsSet);
 			this.setState({ intervalIsSet: null });
 		}
 	}
-*/
+
 	// fetch's data from databse to update number of links generated
 	getDataFromDb = () => {
 		axios.get("/getData")
@@ -77,14 +75,15 @@ export class Home extends Component {
 				console.log(err);
 			});
 	};
-	/*
 
-*/
-	//consol.log's the new document made by putDataToDB
+	//console.log's the new document made by putDataToDB
 	callback = (response) => {
 		//console.log('response from post is: ' + response);
 		//console.log(JSON.stringify(response));
 		console.log(response.data.original_url + ' has been shortened to ' + response.data.short_url);
+
+		//updates number of urls
+		this.getDataFromDb();
 
 		let urlToDisplay= 'https://mernurl.herokuapp.com/' + response.data.short_url;
 
@@ -147,45 +146,6 @@ export class Home extends Component {
 			popoverOpen: !this.state.popoverOpen
 		});
 	}
-
-	/*
-
-	// our delete method that uses our backend api 
-	// to remove existing database information
-	deleteFromDB = idTodelete => {
-		let objIdToDelete = null;
-		this.state.data.forEach(dat => {
-			if (dat.id == idTodelete) {
-				objIdToDelete = dat._id;
-			}
-		});
-
-		console.log(objIdToDelete);
-
-		axios.delete("/api/deleteData", {
-			data: {
-				id: objIdToDelete
-			}
-		});
-	};
-
-	// our update method that uses our backend api
-	// to overwrite existing data base information
-	updateDB = (idToUpdate, updateToApply) => {
-		let objIdToUpdate = null;
-		this.state.data.forEach(dat => {
-			if (dat.id == idToUpdate) {
-				objIdToUpdate = dat._id;
-			}
-		});
-
-		axios.post("/api/updateData", {
-			id: objIdToUpdate,
-			update: { message: updateToApply }
-		});
-	};*/
-
-
 	
 	render() {
 		return (
@@ -209,7 +169,6 @@ export class Home extends Component {
 					</Form>
 				</div>	
 
-
 				{this.state.shortenedUrl != null &&
 				<div className='result-container' onClick={this.handleClick}>
 					<div className='result-text' id='shortened-url'>
@@ -224,11 +183,6 @@ export class Home extends Component {
 		        
 				}		
 			</div>
-
-
-
-
-
 			
 			<div className='description'>
 				<h2>UNLEASH THE POWER OF THE LINK</h2>
@@ -254,8 +208,6 @@ export class Home extends Component {
 				</Container>
 			</div>
 
-
-
 			<div className='frame-frame'>
 				<div className='frame-div'>
 					<iframe 
@@ -271,8 +223,6 @@ export class Home extends Component {
 				</div>
 			</div>
 
-
-
 			<div className='ending'>
 				<div className='quantifiable'>
 					<h2>{this.state.linksPowered}</h2>
@@ -286,71 +236,3 @@ export class Home extends Component {
 		);
 	}
 }
-
-
-/*
-	render() {
-
-	    const { data } = this.state;
-	    
-	    return (
-			<div>
-				<ul>
-					{data.length <= 0
-						? "NO DB ENTRIES YET"
-						: data.map(dat => (
-							<li style={{ padding: "10px" }} key={data.message}>
-								<span style={{ color: "gray" }}> id: </span> {dat.id} <br />
-								<span style={{ color: "gray" }}> data: </span>
-								{dat.message}
-							</li>
-						))}
-				</ul>
-				<div style={{ padding: "10px" }}>
-					<input
-						type="text"
-						onChange={e => this.setState({ message: e.target.value })}
-						placeholder="add something in the database"
-						style={{ width: "200px" }}
-					/>
-					<button onClick={() => this.putDataToDB(this.state.message)}>
-						ADD
-					</button>
-				</div>
-				<div style={{ padding: "10px" }}>
-					<input
-						type="text"
-						style={{ width: "200px" }}
-						onChange={e => this.setState({ idToDelete: e.target.value })}
-						placeholder="put id of item to delete here"
-					/>
-					<button onClick={() => this.deleteFromDB(this.state.idToDelete)}>
-						DELETE
-					</button>
-				</div>
-				<div style={{ padding: "10px" }}>
-					<input
-						type="text"
-						style={{ width: "200px" }}
-						onChange={e => this.setState({ idToUpdate: e.target.value })}
-						placeholder="id of item to update here"
-					/>
-					<input
-						type="text"
-						style={{ width: "200px" }}
-						onChange={e => this.setState({ updateToApply: e.target.value })}
-						placeholder="put new value of the item here"
-					/>
-					<button
-						onClick={() =>
-							this.updateDB(this.state.idToUpdate, this.state.updateToApply)
-							}
-						>
-							UPDATE
-						</button>
-				</div>
-			</div>
-		);
-	}
-}
-*/

@@ -26,8 +26,6 @@ export class About extends Component {
 				</div>
 			</div>
 
-
-
 			<div className='perks'>
 				<h2>LINKS ARE MORE IMPORTANT THAN EVER BEFORE</h2>
 				<p className='perks-desc'>Sed ultricies mi quis ipsum auctor, sit amet pretium. Mi accumsan phasellus.</p>
@@ -70,8 +68,6 @@ export class About extends Component {
 						allowfullscreen/>
 				</div>
 			</div>
-
-
 
 			<div className='ending'>
 				<h2>CURABITUR VENANTS</h2>

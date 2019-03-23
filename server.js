@@ -105,11 +105,7 @@ app.post('/api/shorturl/new', function(req,res) {
             }
             console.log('success, response is: ' + response);
             return res.send(response);
-            // return res.send({original_url:urlToShorten.original_url, short_url:urlToShorten.short_url});
           });
-
-          //show new object in browser
-          //return res.send({original_url:urlToShorten.original_url, short_url:urlToShorten.short_url});
         });
       }
     });
@@ -136,25 +132,8 @@ app.get("/getData", (req, res) => {
 
 
 
-/** 9)  Get input from client - Route parameters */
+// Get input from client - Route parameters 
 app.get('/:shortened', function(req, res, next) {
-  /*
-  //res.send({'echo': req.params.shortened});
-  //next();
-  //use connect method to connect to MongoDb server
-  MongoClient.connect(process.env.MONGO_URI, function(err, db) {
-    if (err) {
-      //if can't connect log error
-      console.log('unable to connect to database. Error: ' + err);
-      throw err;
-    } else {
-      //for debugging purposes
-      console.log('Connection established from a '+req.params.shortened);     
-
-      //check if the shortened url exists in database
-      //open the collection from db atlas
-      var collection=db.db("FCC").collection("links");
-  */
       //check the database for the shortened url
       var findOneByFood = Links.findOne({short_url:parseInt(req.params.shortened)})
       .then(function (data) {
@@ -166,87 +145,7 @@ app.get('/:shortened', function(req, res, next) {
           res.redirect(data.original_url);
         }
       });
-
-
-      //if it is, then redirect to the page
-
-      //if it doesn't, then give some sort of error message
-  //   }
-  // });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-// this is our get method
-// this method fetches all available data in our database
-router.get("/getData", (req, res) => {
-  Links.find((err, data) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: data });
-  });
-});
-
-// this is our update method
-// this method overwrites existing data in our database
-router.post("/updateData", (req, res) => {
-  const { id, update } = req.body;
-  Links.findByIdAndUpdate(id, update, err => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true });
-  });
-});
-
-// this is our delete method
-// this method removes existing data in our database
-router.delete("/deleteData", (req, res) => {
-  const { id } = req.body;
-  Links.findByIdAndRemove(id, err => {
-    if (err) return res.send(err);
-    return res.json({ success: true });
-  });
-});
-
-// this is our create methid
-// this method adds new data in our database
-router.post("/putData", (req, res) => {
-  let data = new Links();
-
-  const { id, message } = req.body;
-
-  if ((!id && id !== 0) || !message) {
-    return res.json({
-      success: false,
-      error: "INVALID INPUTS"
-    });
-  }
-  data.message = message;
-  data.id = id;
-  data.save(err => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true });
-  });
-});
-
-// append /api for our http requests
-app.use("/api", router);
-
-*/
-
 
 
 app.get("*", (req, res) => {

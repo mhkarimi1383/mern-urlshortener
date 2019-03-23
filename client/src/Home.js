@@ -10,7 +10,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import {Footer} from './Footer';
 import { Link } from 'react-router-dom';
 import './App.css';
-
+import {UrlForm} from './UrlForm';
 
 export class Home extends Component {
 
@@ -27,7 +27,8 @@ export class Home extends Component {
 			popoverOpen: false,
 			popoverHidden: false,
 			linksPowered: 0,
-			intervalIsSet: false
+			intervalIsSet: false,
+			userInput: null
 		};
 
 		this.putDataToDB = this.putDataToDB.bind(this);
@@ -35,6 +36,7 @@ export class Home extends Component {
 		this.handleClick = this.handleClick.bind(this);
 		this.toggle = this.toggle.bind(this);
 		this.getDataFromDb = this.getDataFromDb.bind(this);
+		this.handleFormChange = this.handleFormChange.bind(this);
 	}
 
 	// when component mounts, first thing it does is fetch all existing data in our db
@@ -108,7 +110,9 @@ export class Home extends Component {
 
 	// our put method that uses our backend api
 	// to create new query into our data base
-	putDataToDB = (urlToShorten) => {
+	putDataToDB() {
+
+		var urlToShorten = this.state.urlToShorten;
 
 		console.log('calling axios.post from react');
 		axios.post("/api/shorturl/new", {
@@ -118,6 +122,12 @@ export class Home extends Component {
 			this.callback(response);
 		}).catch(err =>{
 			console.log(err);
+		});
+	}
+
+	handleFormChange(userInput) {
+		this.setState({
+			userInput: userInput
 		});
 	}
 
@@ -153,18 +163,11 @@ export class Home extends Component {
 					<h1>SAVE BITS, USE SHORT URLS.</h1>
 				</div>
 
-				<div className='form-container'>
-					<Form inline id='url-form'>
-						<Input id='url-input' type="text" name='url' placeholder="Paste a link to shorten it"
-							onChange={e => this.setState({ urlToShorten: e.target.value })}							
-						/>
-						<Button id='inline-button' color='primary' value="POST URL" 
-							onClick={() => this.putDataToDB(this.state.urlToShorten)}
-						>
-							SHORTEN
-						</Button>
-					</Form>
-				</div>	
+				<UrlForm
+					handleFormChange={this.handleFormChange}
+					userInput={this.state.userInput}
+					handleClick={this.putDataToDB}
+				/>
 
 				{this.state.shortenedUrl != null &&
 				<div className='result-container' onClick={this.handleClick}>
@@ -233,3 +236,16 @@ export class Home extends Component {
 		);
 	}
 }
+
+				// <div className='form-container'>
+				// 	<Form inline id='url-form'>
+				// 		<Input id='url-input' type="text" name='url' placeholder="Paste a link to shorten it"
+				// 			onChange={e => this.setState({ urlToShorten: e.target.value })}							
+				// 		/>
+				// 		<Button id='inline-button' color='primary' value="POST URL" 
+				// 			onClick={() => this.putDataToDB(this.state.urlToShorten)}
+				// 		>
+				// 			SHORTEN
+				// 		</Button>
+				// 	</Form>
+				// </div>	

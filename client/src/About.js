@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row } from 'reactstrap';
-import display from './display.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import {Footer} from './Footer';
-import { Link } from 'react-router-dom';
 import './App.css';
 
 

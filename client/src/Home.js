@@ -33,9 +33,7 @@ export class Home extends Component {
 		this.handleFormChange = this.handleFormChange.bind(this);
 	}
 
-	// when component mounts, first thing it does is fetch all existing data in our db
-	// then we incorporate a polling logic so that we can easily see if our db has 
-	// changed and implement those changes into our UI
+	// fetches existing data, then updates every minute
 	componentDidMount() {
 		window.scrollTo(0,0);
 		this.getDataFromDb();

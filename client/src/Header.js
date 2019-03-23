@@ -39,7 +39,7 @@ export class Header extends Component {
 	render() {
 	return (
 		<div className='navbar-container'>
-			<Navbar color='light' light expand='md'>
+			<Navbar id='white-nav' color='light' light expand='md'>
 				<NavbarBrand href="/" className="mr-auto"><Link to="/">URL Shortener</Link></NavbarBrand>
 				<NavbarToggler onClick={this.toggle} className='mr-2'/>
 				<Collapse isOpen={this.state.isOpen} navbar>

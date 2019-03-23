@@ -236,17 +236,17 @@ export class Home extends Component {
 				<Container className='perk-cards-container'>
 					<Row>
 						<Col md='4' className='perk-card'>
-							<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#007bff'/>
+							<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#ff6700'/>
 							<h3 className='card-h3'>Perk One</h3>
 							<p className='card-p'>Pellentesque eleifend arcu nisi, feugiat efficitur ligula pharetra non. Morbi nunc neque, lacinia quis nisl a, volutpat volutpat enim. Morbi est lectus, luctus sit amet metus ac, porttitor tristique dui. Phasellus rhoncus odio non erat rutrum efficitur porta nec ipsum. </p>
 						</Col>
 						<Col md='4' className='perk-card'>
-							<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#007bff'/>
+							<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#ff6700'/>
 							<h3 className='card-h3'>Perk Two</h3>
 							<p className='card-p'>Pellentesque eleifend arcu nisi, feugiat efficitur ligula pharetra non. Morbi nunc neque, lacinia quis nisl a, volutpat volutpat enim. Morbi est lectus, luctus sit amet metus ac, porttitor tristique dui. Phasellus rhoncus odio non erat rutrum efficitur porta nec ipsum. </p>
 						</Col>
 						<Col md='4' className='perk-card'>
-							<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#007bff'/>
+							<FontAwesomeIcon icon={faCoffee} size='3x' transform='grow-1' color='#ff6700'/>
 							<h3 className='card-h3'>Perk Three</h3>
 							<p className='card-p'>Pellentesque eleifend arcu nisi, feugiat efficitur ligula pharetra non. Morbi nunc neque, lacinia quis nisl a, volutpat volutpat enim. Morbi est lectus, luctus sit amet metus ac, porttitor tristique dui. Phasellus rhoncus odio non erat rutrum efficitur porta nec ipsum. </p>
 						</Col>				
@@ -267,7 +267,7 @@ export class Home extends Component {
 
 
 				<div className='btn-holder'>				
-					<Link to="/about"  > <Button color='primary'>LEARN MORE</Button> </Link>					
+					<Link to="/about"  > <Button color='primary' className='orange-button' >LEARN MORE</Button> </Link>					
 				</div>
 			</div>
 

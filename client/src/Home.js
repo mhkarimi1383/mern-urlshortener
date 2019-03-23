@@ -49,7 +49,7 @@ export class Home extends Component {
 		window.scrollTo(0,0);
 		this.getDataFromDb();
 		if (!this.state.intervalIsSet) {
-			let interval = setInterval(this.getDataFromDb, 1000);
+			let interval = setInterval(this.getDataFromDb, 60000);
 			this.setState({ intervalIsSet: interval });
 		}
 	}

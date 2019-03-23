@@ -13,10 +13,10 @@ export class Footer extends Component {
 			<div className='footer'>
 				<div className='social-media'>
 					<a href="https://github.com/ethanvernon" target="_blank" rel="noopener noreferrer">
-						<FontAwesomeIcon icon={ faGithub } size='1x' transform="grow-10" color='#ff6700' className='social-icons'/>
+						<FontAwesomeIcon icon={ faGithub } size='2x' transform="grow-4" color='#ff6700' className='social-icons'/>
 					</a>
 					<a href="https://www.linkedin.com/in/ethanvernon/" target="_blank" rel="noopener noreferrer">
-						<FontAwesomeIcon icon={ faLinkedinIn } size='1x' transform="grow-10" color='#ff6700' className='social-icons'/>	
+						<FontAwesomeIcon icon={ faLinkedinIn } size='2x' transform="grow-4" color='#ff6700' className='social-icons'/>	
 					</a>
 				</div>
 				<p>Handcrafted by me © Ethan Vernon</p>

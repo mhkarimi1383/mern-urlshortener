@@ -408,8 +408,8 @@ li a:hover {
 
 .logistics .heading h1 {  
   letter-spacing:3px;
-  font-weight:700;
-  font-size:45px;
+  font-weight:700;  
+  font-size:calc(20px + 2vw);
 }
 
 .logistics .key-solution {

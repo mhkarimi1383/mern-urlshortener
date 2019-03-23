@@ -35,7 +35,7 @@ nav {
   position:fixed !important;
   top:0px;
   width:100%;
-  max-width:900px;
+  max-width:960px;
   z-index:5;
 }
 
@@ -96,9 +96,9 @@ li a:hover {
 
 @media only screen and (min-width: 900px) {
   nav {
-    width:900px;
+    width:940px;
     left:50%;
-    margin-left:-450px;
+    margin-left:-470px;
   }
 }
 

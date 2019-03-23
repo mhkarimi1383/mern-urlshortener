@@ -17,7 +17,6 @@ export class Home extends Component {
 
 		this.state = {
 			data: [],
-			id: 0,
 			shortenedUrl: null,
 			popoverOpen: false,
 			popoverHidden: false,

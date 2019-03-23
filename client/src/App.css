@@ -12,14 +12,20 @@
 .navbar-container {
   background-color:white !important;
   width:100%;
-  height:56px;
+  height:57px;
   z-index:5;
   position:fixed;
   top:0px;
+  border-bottom:1px solid gray;
 }
 
 #white-nav {
   background-color:white !important;
+  border-bottom:1px solid gray;
+}
+
+.collapse ul {
+  background-color:white;
 }
 
 nav {
@@ -30,8 +36,8 @@ nav {
   z-index:5;
 }
 
-.navbar-brand a{
-  color:#ff6700 !important;
+.navbar-brand img{
+  height:24px;
 }
 
 .navbar-brand a:hover {
@@ -41,6 +47,9 @@ nav {
 .nav-item {
   padding-left:10px;
   padding-right:10px;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:1px;
 }
 
 .nav-item a {

@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container, Row, Col, Form, FormGroup, Input, Label, Popover, PopoverBody } from 'reactstrap';
-import product from './product.jpg';
-import icon from './icon.png';
-import book from './book.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import {Footer} from './Footer';
-import { Link } from 'react-router-dom';
 import './App.css';
 import {UrlForm} from './UrlForm';
 import {UrlDisplay} from './UrlDisplay';
 import {Description} from './Description';
 import {FrameAndButton} from './FrameAndButton';
 import {Ending} from './Ending';
+import {Footer} from './Footer';
 
 export class Home extends Component {
 
@@ -116,7 +108,7 @@ export class Home extends Component {
 	// to create new query into our data base
 	putDataToDB() {
 
-		var urlToShorten = this.state.urlToShorten;
+		var urlToShorten = this.state.userInput;
 
 		console.log('calling axios.post from react');
 		axios.post("/api/shorturl/new", {

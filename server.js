@@ -81,11 +81,13 @@ app.post('/api/shorturl/new', function(req,res) {
 
           console.log('document count is: ' + data);
           console.log('making new object from Schema');
+
+          var newId=Math.floor((Math.random() * 1000) + 1);
         
           //make the object to store
           var urlToShorten = new Links({
             original_url: newUrl, 
-            short_url:data+1
+            short_url:newId
           });
 
 

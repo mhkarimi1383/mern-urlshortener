@@ -11,6 +11,7 @@ import {Footer} from './Footer';
 import { Link } from 'react-router-dom';
 import './App.css';
 import {UrlForm} from './UrlForm';
+import {UrlDisplay} from './UrlDisplay';
 
 export class Home extends Component {
 
@@ -33,7 +34,7 @@ export class Home extends Component {
 
 		this.putDataToDB = this.putDataToDB.bind(this);
 		this.callback = this.callback.bind(this);
-		this.handleClick = this.handleClick.bind(this);
+		this.handleCopy = this.handleCopy.bind(this);
 		this.toggle = this.toggle.bind(this);
 		this.getDataFromDb = this.getDataFromDb.bind(this);
 		this.handleFormChange = this.handleFormChange.bind(this);
@@ -132,7 +133,7 @@ export class Home extends Component {
 	}
 
 	//copies a shortened URL to keyboard
-	handleClick() {
+	handleCopy() {
 		//clear any selection
 		if (window.getSelection) {window.getSelection().removeAllRanges();}
 
@@ -170,18 +171,15 @@ export class Home extends Component {
 				/>
 
 				{this.state.shortenedUrl != null &&
-				<div className='result-container' onClick={this.handleClick}>
-					<div className='result-text' id='shortened-url'>
-						{this.state.shortenedUrl}
-					</div>
-					{!this.state.popoverHidden && 
-						<Popover placement="bottom" isOpen={this.state.popoverOpen} target="shortened-url" toggle={this.toggle}>
-						<PopoverBody>Copied</PopoverBody>
-						</Popover>
-					}
-				</div>					
-		        
-				}		
+				<UrlDisplay
+					shortenedUrl={this.state.shortenedUrl}
+					popoverHidden={this.state.popoverHidden}
+					popoverOpen={this.state.popoverOpen}
+					handleClick={this.handleCopy}
+					toggle={this.toggle}
+				/>
+				}
+
 			</div>
 			
 			<div className='description'>
@@ -249,3 +247,19 @@ export class Home extends Component {
 				// 		</Button>
 				// 	</Form>
 				// </div>	
+
+				
+
+				// {this.state.shortenedUrl != null &&
+				// <div className='result-container' onClick={this.handleCopy}>
+				// 	<div className='result-text' id='shortened-url'>
+				// 		{this.state.shortenedUrl}
+				// 	</div>
+				// 	{!this.state.popoverHidden && 
+				// 		<Popover placement="bottom" isOpen={this.state.popoverOpen} target="shortened-url" toggle={this.toggle}>
+				// 		<PopoverBody>Copied</PopoverBody>
+				// 		</Popover>
+				// 	}
+				// </div>					
+		        
+				// }	

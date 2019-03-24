@@ -408,6 +408,7 @@ li a:hover {
 @media only screen and (max-width: 500px) {
   .heading {    
   	background-image: url(./about-back-mobile.jpg);
+  	background-attachment:scroll;
   }
 }
 

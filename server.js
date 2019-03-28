@@ -122,9 +122,14 @@ app.get("/getData", (req, res) => {
       console.log('error checking databse for data');
       return res.json({ success: false, error: err });
     }
-    console.log('no error checking database. returning data: ' + JSON.stringify(data));
+    //console.log('no error checking database. returning data: ' + JSON.stringify(data));
     console.log(data.length);
-    return res.send(data);
+    //return res.send(data);
+  })
+  .select({ _id: 1})
+  .exec((err, data) => {
+  	console.log('return data as :' + data);
+  	return res.send(data);
   });
 });
 

@@ -35,7 +35,7 @@ Function in server.js makes sure there's only 1 entry per link, e.g. http://goog
 ### Entry count
 Entry count is updated real-time.
 
-![React Logo w/ Text](http://fromgaming.com/portfolio2/static/media/urlshortner-markup.fc5bb0b8.png)
+![React Logo w/ Text](http://fromgaming.com/images/mernurl-count-min.png)
 
 ### Users can visit their shortened URL
 When user visits, for example, https://mernurl.herokuapp.com/5278, this is an api endpoint which redirects the user to the original URL, if the shortened URL exists.

@@ -34,6 +34,7 @@ Function in server.js makes sure there's only 1 entry per link, e.g. http://goog
 
 ### Entry count
 Entry count is updated real-time.
+
 ![React Logo w/ Text](http://fromgaming.com/portfolio2/static/media/urlshortner-markup.fc5bb0b8.png)
 
 ### Users can visit their shortened URL
